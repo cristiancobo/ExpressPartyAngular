@@ -1,0 +1,81 @@
+<div class="container">
+
+    <div>
+        <mat-toolbar class="booking-list-toolbar"  style="background-color:#ECE5FF">
+            <span>Actualización de reserva</span>
+          </mat-toolbar>
+    </div>
+    <div>
+        <mat-card  class="mat-elevation-z1">
+          <form [formGroup]="form" (ngSubmit)="actualizarReserva()">
+        <mat-grid-list mat-grid-list cols="4" rowHeight="70px">
+            <mat-grid-tile [colspan]="2"  [rowspan]="1">
+                <mat-form-field class="example-full-width" appearance="fill" class="input-booking" >
+                    <mat-label>Nombre completo</mat-label>
+                    <input matInput placeholder="Carlos Arce" formControlName="nombre">
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2"  [rowspan]="6"  style="background-color:#ECE5FF" >
+              <img src="../../../../../assets/svg/partiying.svg" alt="" width="500" height="500">
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2"  [rowspan]="1" >
+                <mat-form-field class="example-full-width" appearance="fill" class="input-booking" >
+                    <mat-label>Número de identificación</mat-label>
+                    <input matInput placeholder="Carlos Arce"  formControlName="identificacion" >
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2"  [rowspan]="1" >
+                <mat-form-field class="example-full-width" appearance="fill" class="input-booking" >
+                    <mat-label>Teléfono</mat-label>
+                    <input matInput placeholder="Carlos Arce"  formControlName="telefono">
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2"  [rowspan]="1" >
+                <mat-form-field class="example-full-width" appearance="fill" class="input-booking" >
+                    <mat-label>Dirección </mat-label>
+                    <input matInput placeholder="Carlos Arce"  formControlName="direccion">
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2"  [rowspan]="1" >
+                <mat-form-field appearance="fill"  class="input-booking">
+                    <mat-label>Tipo de combo</mat-label>
+                    <mat-select  [(value)]="selected " formControlName="combo">
+                      <mat-option *ngFor="let food of foods" [value]="food.value">
+                        {{food.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2"  [rowspan]="1" >
+              
+           <mat-form-field class="input-booking" appearance="fill">
+            <input matInput [ngxMatDatetimePicker]="picker" placeholder="Elige la fecha y hora"  formControlName="fecha" type="text">
+            <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+              
+            <ngx-mat-datetime-picker #picker ></ngx-mat-datetime-picker>
+        </mat-form-field>
+            </mat-grid-tile>
+           
+            
+            <mat-grid-tile [colspan]="2"  [rowspan]="1">
+                <button type="submit" mat-flat-button color="primary" class="booking-button"
+                [disabled] ="form.invalid"
+                >
+                    Realizar reserva
+                </button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2"  [rowspan]="1">
+              <button  mat-flat-button color="warn" class="booking-button"
+              [routerLink]="['../listar']"
+              >
+                  Cancelar
+              </button>
+          </mat-grid-tile>
+        </mat-grid-list>
+        </form>
+        </mat-card>
+   
+    </div>
+
+
+</div>

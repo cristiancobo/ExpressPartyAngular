@@ -1,0 +1,99 @@
+<div class="container">
+
+    <div>
+        <mat-toolbar class="booking-list-toolbar"  style="background-color:#ECE5FF">
+            <span>Realizar una reservación</span>
+          </mat-toolbar>
+    </div>
+    <div>
+        <mat-card  class="mat-elevation-z1">
+          <form [formGroup]="form" (ngSubmit)="agregarReserva()">
+        <mat-grid-list mat-grid-list cols="4" rowHeight="70px">
+            <mat-grid-tile [colspan]="2"  [rowspan]="1">
+                <mat-form-field class="example-full-width" appearance="fill" class="input-booking" >
+                    <mat-label>Nombre completo</mat-label>
+                    <input matInput placeholder="Carlos Arce" formControlName="nombre" required type="text">
+                    <mat-error *ngIf="form.controls.nombre.errors?.required">
+                      El nombre es <strong>obligatorio</strong>
+                    </mat-error>
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2"  [rowspan]="6"  style="background-color:#ECE5FF" >
+              <img src="../../../../../assets/svg/partiying.svg" alt="" width="500" height="500">
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2"  [rowspan]="1" >
+                <mat-form-field class="example-full-width" appearance="fill" class="input-booking" >
+                    <mat-label>Número de identificación</mat-label>
+                    <input matInput placeholder="12345678"  formControlName="identificacion" required type="number">
+                    <mat-error *ngIf="form.controls.identificacion.errors?.required">
+                      El número de identicación es <strong>obligatorio</strong>
+                    </mat-error>
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2"  [rowspan]="1" >
+                <mat-form-field class="example-full-width" appearance="fill" class="input-booking" >
+                    <mat-label>Teléfono</mat-label>
+                    <input matInput placeholder="320xxxx"  formControlName="telefono" required type="number">
+                    <mat-error *ngIf="form.controls.telefono.errors?.required">
+                      El teléfono es <strong>obligatorio</strong>
+                    </mat-error>
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2"  [rowspan]="1" >
+                <mat-form-field class="example-full-width" appearance="fill" class="input-booking" >
+                    <mat-label>Dirección </mat-label>
+                    <input matInput placeholder="Cra. 20 # 56-09"  formControlName="direccion" required>
+                    <mat-error *ngIf="form.controls.direccion.errors?.required">
+                      La dirección es <strong>obligatorio</strong>
+                    </mat-error>
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2"  [rowspan]="1" >
+                <mat-form-field appearance="fill"  class="input-booking" >
+                    <mat-label>Tipo de combo</mat-label>
+                    <mat-select  [(value)]="selected "  formControlName="combo" required>
+                      <mat-option *ngFor="let food of foods" [value]="food.value" >
+                        {{food.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls.combo.errors?.required">
+                      Debes seleccionar un  <strong>combo</strong>
+                    </mat-error>
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2"  [rowspan]="1" >
+              
+           <mat-form-field class="input-booking" appearance="fill">
+            <input matInput [ngxMatDatetimePicker]="picker" placeholder="Elige la fecha y hora" required formControlName="fecha"  [(ngModel)]="fechaPorDefecto">
+            <mat-error *ngIf="form.controls.fecha.errors?.required">
+              La fecha de reservación <strong>obligatoria</strong>
+            </mat-error>
+            <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+              
+            <ngx-mat-datetime-picker #picker ></ngx-mat-datetime-picker>
+        </mat-form-field>
+            </mat-grid-tile>
+           
+            
+            <mat-grid-tile [colspan]="2"  [rowspan]="1">
+                <button type="submit" mat-flat-button color="primary" class="booking-button"
+                [disabled] ="form.invalid"
+                >
+                    Realizar reserva
+                </button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2"  [rowspan]="1">
+              <button type="submit" mat-flat-button color="warn" class="booking-button"
+              [routerLink]="['../listar']"
+              >
+               Cancelar
+              </button>
+          </mat-grid-tile>
+        </mat-grid-list>
+        </form>
+        </mat-card>
+   
+    </div>
+
+
+</div>

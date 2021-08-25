@@ -1,0 +1,12 @@
+.container{
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 5px;
+}
+.booking-list-toolbar{
+    background-color: white;
+}
+#linkListarReserva{
+    margin-right: 10px;
+    margin-left: 10px;
+}

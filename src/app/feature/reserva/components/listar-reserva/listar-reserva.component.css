@@ -1,0 +1,20 @@
+.booking-list-toolbar{
+    background-color: white;
+}
+.container{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+.booking-list-spacer-toolbar{
+    flex: 1 1 auto;
+}
+
+table {
+    width: 100%;
+  }
+.mat-form-field {
+    font-size: 14px;
+    width: 40%;
+  
+}

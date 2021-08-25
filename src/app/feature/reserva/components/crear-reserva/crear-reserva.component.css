@@ -1,0 +1,15 @@
+.container{
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 5px;
+}
+.booking-list-toolbar{
+    background-color: white;
+}
+
+.input-booking{
+    width: 90%;
+}
+.booking-button{
+    width: 90%;
+}
