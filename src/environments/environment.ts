@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  endpoint: 'http://localhost:8080/reservas'
+  endpoint: 'https://production-express-party.azurewebsites.net/reservas'
 };
 
 /*
